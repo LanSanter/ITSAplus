@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int input = 0, i = 0;
+
+    scanf("%d", &input); // 讀入整數
+    for (i = input; i >= input - 2; i--) { // 找出最近的 3 的倍數
+        if (i % 3 != 0) {
+            continue;
+        } else {
+            break;
+        }
+    }
+    printf("%d\n", i / 3 * (3 + i) / 2); // 計算總和並輸出（等差級數公式）
+
+    return 0;
+}
