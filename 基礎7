@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int input = 0;
+
+    scanf("%d", &input); // 讀入操作的行數
+    while (input--) { // 依據輸入的行數遞減計算次數
+        int ai = 0, a = 0, bi = 0, b = 0;
+        char w; // 運算符號
+
+        scanf(" %c %d %d %d %d", &w, &ai, &a, &bi, &b); // 讀入運算符號與四個整數
+        switch (w) { // 根據運算符號來決定計算方式
+            case '+': // 加法
+                printf("%d %d\n", ai + bi, a + b);
+                break;
+            case '-': // 減法
+                printf("%d %d\n", ai - bi, a - b);
+                break;
+            case '*': // 乘法
+                printf("%d %d\n", ai * bi - a * b, a * bi + ai * b);
+                break;
+            case '/': // 除法
+                printf("%d %d\n", (ai * bi + a * b) / (bi * bi + b * b), 
+                       (a * bi - ai * b) / (bi * bi + b * b));
+                break;
+        }
+    }
+
+    return 0;
+}
