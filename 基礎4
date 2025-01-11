@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int startH = 0, startM = 0, endH = 0, endM = 0;
+
+    // 讀入開始時間和結束時間
+    scanf("%d %d", &startH, &startM);
+    scanf("%d %d", &endH, &endM);
+
+    // 計算總時數（以分鐘計算）
+    int time = (endH * 60 + endM) - (startH * 60 + startM);
+
+    // 根據時間計算費用
+    if (time <= 120 && time >= 0) {
+        printf("%d\n", (time / 30) * 30); // 2 小時內的費用
+    } else if (time > 120 && time <= 240) {
+        printf("%d\n", ((time - 120) / 30) * 40 + 120); // 4 小時內的費用 + 2 小時的費用
+    } else {
+        printf("%d\n", ((time - 240) / 30) * 60 + 120 + 160); // 4 小時外的費用 + 4 小時的費用 + 2 小時的費用
+    }
+
+
+    return 0;
+}
